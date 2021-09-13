@@ -42,6 +42,8 @@ object APIHolder {
         AllMoviesForYouProvider(),
         AsiaFlixProvider(),
         ThenosProvider()
+//        NyaaProvider(),
+        TrailersToProvider(),
     )
 
     val restrictedApis = arrayListOf(

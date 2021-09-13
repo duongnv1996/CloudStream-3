@@ -1,120 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:background="@null"
-        android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:orientation="vertical">
+
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_marginBottom="60dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="false">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
-                android:id="@+id/sort_sources_holder"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="50">
+            android:id="@+id/sort_sources_holder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
             <TextView
-                    android:layout_marginTop="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_marginTop="10dp"
+                android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+                android:paddingTop="10dp"
+                android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                android:paddingBottom="10dp"
+                android:text="@string/pick_source"
+                android:textColor="?attr/textColor"
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+
+            <ListView
+                android:id="@+id/sort_providers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_rowWeight="1"
+                android:background="?attr/bitDarkerGrayBackground"
+                tools:listitem="@layout/sort_bottom_single_choice" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sort_subtitles_holder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/subs_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_rowWeight="1"
                     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
                     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-                    android:textStyle="bold"
-                    android:text="@string/pick_source"
-                    android:textSize="20sp"
+                    android:text="@string/pick_subtitle"
                     android:textColor="?attr/textColor"
-                    android:layout_width="match_parent"
-                    android:layout_rowWeight="1"
-                    android:layout_height="wrap_content">
-            </TextView>
-            <ListView
-                    android:id="@+id/sort_providers"
-                    android:background="?attr/bitDarkerGrayBackground"
-                    tools:listitem="@layout/sort_bottom_single_choice"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_rowWeight="1"
-            />
-        </LinearLayout>
-        <LinearLayout
-                android:id="@+id/sort_subtitles_holder"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="50">
-            <FrameLayout
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                    android:id="@+id/subs_settings"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <TextView
-                        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-                        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+                    android:textSize="20sp"
+                    android:textStyle="bold"></TextView>
 
-                        android:textStyle="bold"
-                        android:text="@string/pick_subtitle"
-                        android:textSize="20sp"
-                        android:textColor="?attr/textColor"
-                        android:layout_rowWeight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                </TextView>
-
-                <ImageView
-                        android:visibility="gone"
-                        android:layout_marginTop="0dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_gravity="end|center_vertical"
-
-                        android:src="@drawable/ic_outline_settings_24"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/btnSearchSubtitle"
                         android:layout_width="25dp"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/home_change_provider_img_des">
-                </ImageView>
-            </FrameLayout>
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/home_change_provider_img_des"
+                        android:src="@drawable/ic_baseline_cloud_24" />
+                    <ImageView
+                        android:id="@+id/btnUploadSubtitle"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/home_change_provider_img_des"
+                        android:src="@drawable/unicorn_ic_folder" />
+                    <ImageView
+                        android:id="@+id/btnSettingSubtitle"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:contentDescription="@string/home_change_provider_img_des"
+                        android:src="@drawable/ic_outline_settings_24" />
 
+
+                </LinearLayout>
+
+            </FrameLayout>
             <ListView
-                    android:id="@+id/sort_subtitles"
-                    android:background="?attr/bitDarkerGrayBackground"
-                    tools:listitem="@layout/sort_bottom_single_choice"
-                    android:layout_width="match_parent"
-                    android:layout_rowWeight="1"
-                    android:layout_height="match_parent">
-            </ListView>
+                android:id="@+id/sort_subtitles"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_rowWeight="1"
+                android:background="?attr/bitDarkerGrayBackground"
+                tools:listitem="@layout/sort_bottom_single_choice"></ListView>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-            android:orientation="horizontal"
-            android:layout_gravity="bottom"
-            android:gravity="bottom|end"
-            android:layout_marginTop="-60dp"
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="-60dp"
+        android:gravity="bottom|end"
+        android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
-                style="@style/WhiteButton"
-                android:layout_gravity="center_vertical|end"
-                android:text="@string/sort_apply"
-                android:id="@+id/apply_btt"
-                android:layout_width="wrap_content"
-        />
+            android:id="@+id/apply_btt"
+            style="@style/WhiteButton"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:text="@string/sort_apply" />
+
         <com.google.android.material.button.MaterialButton
-                style="@style/BlackButton"
-                android:layout_gravity="center_vertical|end"
-                android:text="@string/sort_cancel"
-                android:id="@+id/cancel_btt"
-                android:layout_width="wrap_content"
-        />
+            android:id="@+id/cancel_btt"
+            style="@style/BlackButton"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:text="@string/sort_cancel" />
     </LinearLayout>
 </LinearLayout>

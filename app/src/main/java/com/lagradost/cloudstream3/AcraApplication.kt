@@ -3,6 +3,7 @@ package com.lagradost.cloudstream3
 import android.app.Application
 import android.content.Context
 import android.widget.Toast
+import com.blankj.utilcode.util.Utils
 import com.google.auto.service.AutoService
 import com.lagradost.cloudstream3.mvvm.normalSafeApiCall
 import com.lagradost.cloudstream3.utils.Coroutines.runOnMainThread
@@ -52,6 +53,10 @@ class CustomSenderFactory : ReportSenderFactory {
 }
 
 class AcraApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        Utils.init(this)
+    }
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
 

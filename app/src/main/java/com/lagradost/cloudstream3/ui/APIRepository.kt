@@ -1,10 +1,19 @@
 package com.lagradost.cloudstream3.ui
 
+import android.content.Context
+import android.util.Log
+import com.blankj.utilcode.util.ZipUtils
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.mvvm.Resource
 import com.lagradost.cloudstream3.mvvm.normalSafeApiCall
 import com.lagradost.cloudstream3.mvvm.safeApiCall
+import com.lagradost.cloudstream3.services.ApiUtils
 import com.lagradost.cloudstream3.utils.ExtractorLink
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.*
 
 class APIRepository(val api: MainAPI) {
     companion object {
@@ -23,6 +32,7 @@ class APIRepository(val api: MainAPI) {
 
         val noneRepo = APIRepository(noneApi)
     }
+
     val hasMainPage: Boolean get() = api.hasMainPage
     val name: String get() = api.name
     val mainUrl: String get() = api.mainUrl
